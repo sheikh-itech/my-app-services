@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { HEROES } from '../mock-heroes';
 
 @Component({
   selector: 'app-heroes',
@@ -25,5 +26,12 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     this.heroService.getHeroes()
         .subscribe(heroes => this.heroes = heroes);
+  }
+  getRemoteHeroes(): void {
+    this.heroService.getRemoteHeroes().subscribe(heroes => {this.heroes = heroes,
+        heroes.forEach(function (value, key) {
+            HEROES.push({id:value.id,name:value.name});
+        })
+    });
   }
 }
