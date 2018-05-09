@@ -1,0 +1,5 @@
+<div class="infoAlert" *ngIf="showInfoAlert">
+    <span class="closebtn" (click)="changeState(false)">&times;</span> 
+    <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+</div>
+<button (click)="changeState(true)">show alert</button>

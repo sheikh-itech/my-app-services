@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 4px;
+}
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    display: inline-block;
+}
+ul li a{
+    font-size: 20px;
+    text-decoration: none;
+}
+.main-page {
+    text-align:center;
+    margin-bottom: 10%;
+}
+.nav-section {
+    padding-top: 5px;
+}

@@ -1,0 +1,28 @@
+.nav-section {
+    width: 100%;
+    margin-top: -11px;
+    background-color: lightslategray;
+}
+ul.header-section {
+    height: 5%;
+    text-align: left;
+}
+ul.header-section li a {
+    color: aliceblue;
+    margin-left: 15px;
+}
+ul.header-section li:first-child a {
+    margin-left: 0px;
+}
+ul.header-section li a:hover {
+    color: midnightblue;
+}
+/* ul.header-section>li.active>a, ul.header-section>li.active>a:focus,
+ul.header-section>li.active>a:hover{
+	color: #AAC1D1;
+	cursor: default;
+	background-color: #fff;
+	border: none;
+	border-bottom-color: white;
+	text-decoration: underline !important;
+} */

@@ -1,0 +1,10 @@
+ul.home-dummy-list {
+    bottom: 0;
+    position: relative;
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+ul.home-dummy-list li a {
+    margin-left: 10px;
+    font-size: 14px;
+}
