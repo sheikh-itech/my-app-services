@@ -28,5 +28,6 @@ export class HeroDetailRouteComponent implements OnInit {
   }
   goBack(): void {
     this.location.back();
+    this.heroService.currentPosFlag = true;
   }
 }

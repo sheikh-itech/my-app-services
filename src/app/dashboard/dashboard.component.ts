@@ -10,22 +10,37 @@ import { HEROES } from '../mock-heroes';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
-  private next: number = 5;
-  constructor(private heroService: HeroService) { }
+  private backflag: boolean = true;
+  constructor( private heroService: HeroService ) { }
 
   ngOnInit() {
     this.getHeroes();
   }
-
   getHeroes(): void {
+    if(this.heroService.currentPosFlag) {
+      if(this.heroService.getCurrentPosition() < HEROES.length) {
+        this.heroService.getHeroes()
+          .subscribe(heroes => {
+          heroes.forEach(function(v,k){
+            console.log(v.id+'----'+v.name);
+          }),
+          this.heroes = heroes.slice(this.heroService.getCurrentPosition()-4, this.heroService.getCurrentPosition())});
+        }
+        this.heroService.currentPosFlag = false;
+    }else {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, this.next));
+      .subscribe(heroes => this.heroes = heroes.slice(0, this.heroService.getCurrentPosition()+4));
+    this.heroService.setCurrentPosition(this.heroService.getCurrentPosition()+4);
+    }
   }
   getNextHeroes(): void {
-    if(this.next<HEROES.length) {
+    if(this.heroService.getCurrentPosition() < HEROES.length) {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(this.next, this.next+4));
-    this.next+=4;
+      .subscribe(heroes => this.heroes = heroes.slice(this.heroService.getCurrentPosition(), this.heroService.getCurrentPosition()+4));
+      this.heroService.setCurrentPosition(4 + this.heroService.getCurrentPosition());
+    }
+    else {
+      this.backflag = false;
     }
   }
 }

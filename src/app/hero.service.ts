@@ -10,7 +10,8 @@ import { Http, Response } from '@angular/http';
 @Injectable()
 export class HeroService implements OnInit {
   private heroesUrl = 'http://localhost:8081/ServletDummyService/DummyServlet';
-  
+  private currentPosition: number = 0;
+  public currentPosFlag: boolean = false;
   //constructor(private messageService: MessageService) { }
   constructor(private _http: Http, private messageService: MessageService) { }
   /*getHeroes(): Observable<Hero[]> {
@@ -38,6 +39,12 @@ export class HeroService implements OnInit {
     this.messageService.add('HeroService: fetched heroes from remote'+response[0]);
     
     return response;
+  }
+  getCurrentPosition(): number {
+    return this.currentPosition;
+  }
+  setCurrentPosition(position: number) {
+    this.currentPosition = position;
   }
   ngOnInit() {
     //this._http.get<Hero>("").map(e=>)
