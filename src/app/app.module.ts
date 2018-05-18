@@ -20,6 +20,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailRouteComponent } from './hero-detail-route/hero-detail-route.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpInterceptor } from './HttpInterceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule, FormsModule, HttpModule, ModalModule.forRoot(), AppRoutingModule, HttpClientModule
   ],
-  providers: [HeroService, MessageService, BsModalService],
+  providers: [HeroService, MessageService, BsModalService, HttpInterceptor],
   bootstrap: [AppComponent],
   entryComponents: [WidgetComponent]
 })

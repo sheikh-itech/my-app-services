@@ -6,6 +6,7 @@ import { HEROES } from './mock-heroes';
 import { MessageService } from './message.service';
 import 'rxjs/add/operator/map';
 import { Http, Response } from '@angular/http';
+import { HttpInterceptor } from './HttpInterceptor';
 
 @Injectable()
 export class HeroService implements OnInit {
@@ -13,7 +14,7 @@ export class HeroService implements OnInit {
   private currentPosition: number = 0;
   public currentPosFlag: boolean = false;
   //constructor(private messageService: MessageService) { }
-  constructor(private _http: Http, private messageService: MessageService) { }
+  constructor(/*private _http: Http*/private _http: HttpInterceptor, private messageService: MessageService,httpInterceptor: HttpInterceptor) { }
   /*getHeroes(): Observable<Hero[]> {
     return of(HEROES);
   }*/
